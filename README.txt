@@ -4,3 +4,5 @@ Upload all files to repository root. Versioned assets and network-first service 
  v0.6.1: noindex, nofollow. Not access control. Keep crawler access enabled so noindex can be read.
 
 v0.6.2: GAIN 0.5–10.0, step 0.5.
+
+ v0.6.3: RetroSound and RETROWAVE branding. Legacy logo asset replaced at its original path for overwrite deployments. Existing product-inspired visual layouts remain.
