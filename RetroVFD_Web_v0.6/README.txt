@@ -1,0 +1,2 @@
+v0.6 LANDSCAPE EDITION
+Upload all files to repository root. Versioned assets and network-first service worker. Landscape preferred, not guaranteed on iOS. Rotate device manually. Existing old service worker may require clearing website data once. Audio and canvas drawing unchanged.

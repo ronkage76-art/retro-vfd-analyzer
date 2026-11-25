@@ -1,0 +1,5 @@
+const CACHE='retro-vfd-web-v060';
+const FILES=['./','./index.html','./style.css?v=060','./app.js?v=060','./manifest.webmanifest?v=060','./icon-192.png','./icon-512.png','./mc-logo.png'];
+self.addEventListener('install',e=>e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(FILES.map(u=>new Request(u,{cache:'reload'})));await self.skipWaiting()})()));
+self.addEventListener('activate',e=>e.waitUntil((async()=>{for(const k of await caches.keys())if(k.startsWith('retro-vfd-web-')&&k!==CACHE)await caches.delete(k);await self.clients.claim()})()));
+self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin||!u.href.startsWith(self.registration.scope))return;e.respondWith((async()=>{const c=await caches.open(CACHE);try{const r=await fetch(e.request,{cache:'no-cache'});if(r.ok){await c.put(e.request,r.clone());return r}return (await c.match(e.request))||r}catch(err){return (await c.match(e.request))||(e.request.mode==='navigate'?await c.match('./index.html'):undefined)||Response.error()}})())});
